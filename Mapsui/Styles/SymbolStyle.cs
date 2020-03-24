@@ -15,8 +15,8 @@ namespace Mapsui.Styles
     {
         public SymbolStyle() : base() { }
 
-        public static double DefaultWidth { get; set; } = 32;
-        public static double DefaultHeight { get; set; } = 32;
+        public static double DefaultWidth { get; set; } = 16;
+        public static double DefaultHeight { get; set; } = 16;
         public SymbolType SymbolType { get; set; }
 
         public override bool Equals(object obj)
