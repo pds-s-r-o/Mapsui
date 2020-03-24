@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MultiLineString
    ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -95,15 +95,19 @@
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="Mapsui.Geometries.Geometry.html">Geometry</a>&gt;</div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Mapsui.Geometries.Geometry.html">Geometry</a>&gt;</div>
     <div><a class="xref" href="Mapsui.Geometries.IGeometryCollection.html">IGeometryCollection</a></div>
     <div><a class="xref" href="Mapsui.Geometries.IGeometry.html">IGeometry</a></div>
-    <div><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Mapsui.Geometries.Geometry.html">Geometry</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Mapsui.Geometries.Geometry.html">Geometry</a>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="Mapsui.Geometries.GeometryCollection.html#Mapsui_Geometries_GeometryCollection_Collection">GeometryCollection.Collection</a>
+    </div>
+    <div>
+      <a class="xref" href="Mapsui.Geometries.GeometryCollection.html#Mapsui_Geometries_GeometryCollection_System_Collections_IEnumerable_GetEnumerator">GeometryCollection.IEnumerable.GetEnumerator()</a>
     </div>
     <div>
       <a class="xref" href="Mapsui.Geometries.GeometryCollection.html#Mapsui_Geometries_GeometryCollection_GetBoundingBox">GeometryCollection.GetBoundingBox()</a>
@@ -138,12 +142,27 @@
     <div>
       <a class="xref" href="Mapsui.Geometries.Geometry.html#Mapsui_Geometries_Geometry_GeomFromWKB_System_Byte___">Geometry.GeomFromWKB(Byte[])</a>
     </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Mapsui.Geometries.html">Mapsui.Geometries</a></h6>
   <h6><strong>Assembly</strong>: Mapsui.Geometries.dll</h6>
   <h5 id="Mapsui_Geometries_MultiLineString_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MultiLineString : GeometryCollection, IEquatable&lt;Geometry&gt;, IGeometryCollection, IGeometry, IEnumerable&lt;Geometry&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class MultiLineString : GeometryCollection, IEquatable&lt;Geometry&gt;, IGeometryCollection, IGeometry, IEnumerable&lt;Geometry&gt;, IEnumerable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -337,7 +356,7 @@ MultiLineString)</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IList</span>&lt;<a class="xref" href="Mapsui.Geometries.LineString.html">LineString</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="Mapsui.Geometries.LineString.html">LineString</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -540,7 +559,7 @@ as calculated in the spatial reference system of this Geometry.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerator</span>&lt;<a class="xref" href="Mapsui.Geometries.Geometry.html">Geometry</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="Mapsui.Geometries.Geometry.html">Geometry</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -583,7 +602,7 @@ as calculated in the spatial reference system of this Geometry.</p>
   <div><a class="xref" href="Mapsui.Geometries.GeometryCollection.html#Mapsui_Geometries_GeometryCollection_IsEmpty">GeometryCollection.IsEmpty()</a></div>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">IEquatable&lt;&gt;</span>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
   </div>
   <div>
       <a class="xref" href="Mapsui.Geometries.IGeometryCollection.html">IGeometryCollection</a>
@@ -592,7 +611,17 @@ as calculated in the spatial reference system of this Geometry.</p>
       <a class="xref" href="Mapsui.Geometries.IGeometry.html">IGeometry</a>
   </div>
   <div>
-      <span class="xref">IEnumerable&lt;&gt;</span>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Mapsui.Geometries.GeometryExtensions.html#Mapsui_Geometries_GeometryExtensions_Copy_Mapsui_Geometries_IGeometry_">GeometryExtensions.Copy(IGeometry)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mapsui.Projection.GeometryIterator.html#Mapsui_Projection_GeometryIterator_AllVertices_Mapsui_Geometries_IGeometry_">GeometryIterator.AllVertices(IGeometry)</a>
   </div>
 </article>
           </div>

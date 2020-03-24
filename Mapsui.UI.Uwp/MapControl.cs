@@ -48,7 +48,6 @@ namespace Mapsui.UI.Uwp
             Children.Add(_canvas);
             Children.Add(_selectRectangle);
 
-            _canvas.IgnorePixelScaling = true;
             _canvas.PaintSurface += Canvas_PaintSurface;
 
             Map = new Map();
@@ -171,8 +170,11 @@ namespace Mapsui.UI.Uwp
             if (Renderer == null) return;
             if (_map == null) return;
             if (!Viewport.HasSize) return;
+            if (PixelDensity <= 0) return;
 
-            Renderer.Render(e.Surface.Canvas, Viewport, _map.Layers, _map.Widgets, _map.BackColor);
+            e.Surface.Canvas.Scale(PixelDensity, PixelDensity);
+
+            Renderer.Render(e.Surface.Canvas, new Viewport(Viewport), _map.Layers, _map.Widgets, _map.BackColor);
         }
 
         [Obsolete("Use MapControl.Navigate.NavigateTo instead", true)]
@@ -222,8 +224,6 @@ namespace Mapsui.UI.Uwp
             e.Handled = true;
         }
 
-        public float PixelDensity => (float)DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
-
         public void OpenBrowser(string url)
         {
             Task.Run(() => Launcher.LaunchUriAsync(new Uri(url)));
@@ -231,5 +231,11 @@ namespace Mapsui.UI.Uwp
 
         private float ViewportWidth => (float)ActualWidth;
         private float ViewportHeight => (float)ActualHeight;
+
+        private float GetPixelDensity()
+        {
+            return (float)DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+        }
+
     }
 }

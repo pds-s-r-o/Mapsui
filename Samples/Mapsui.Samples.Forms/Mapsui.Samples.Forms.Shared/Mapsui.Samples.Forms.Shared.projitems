@@ -9,6 +9,9 @@
     <Import_RootNamespace>Mapsui.Samples.Forms</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ExtensionMethods\FeatureExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ManyPinsSample.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SnapshotSample.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -26,6 +29,7 @@
       <DependentUpon>MapPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)AnimationSample.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyLocationSample.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PinSample.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PolygonSample.cs" />

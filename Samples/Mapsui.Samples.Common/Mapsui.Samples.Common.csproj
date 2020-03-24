@@ -64,8 +64,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BruTile" Version="2.0.2" />
-    <PackageReference Include="BruTile.MbTiles" Version="2.0.2" />
+    <PackageReference Include="BruTile" Version="2.1.2" />
+    <PackageReference Include="BruTile.MbTiles" Version="2.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 
@@ -73,6 +73,12 @@
     <ProjectReference Include="..\..\Mapsui.Geometries\Mapsui.Geometries.csproj" />
     <ProjectReference Include="..\..\Mapsui\Mapsui.csproj" />
     <ProjectReference Include="..\Mapsui.Samples.CustomWidget\Mapsui.Samples.CustomWidget.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MbTiles\chinese-world.mbtiles">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <PropertyGroup>

@@ -42,6 +42,7 @@ namespace Mapsui
         private double _rotation;
         private ReadOnlyPoint _center = new ReadOnlyPoint(0, 0);
         private bool _modified = true;
+
         /// <summary>
         /// Create a new viewport
         /// </summary>
@@ -55,13 +56,13 @@ namespace Mapsui
         /// Create a new viewport from another viewport
         /// </summary>
         /// <param name="viewport">Viewport from which to copy all values</param>
-        public Viewport(Viewport viewport) : this()
+        public Viewport(IReadOnlyViewport viewport) : this()
         {
-            _resolution = viewport._resolution;
-            _width = viewport._width;
-            _height = viewport._height;
-            _rotation = viewport._rotation;
-            _center = new ReadOnlyPoint(viewport._center);
+            _resolution = viewport.Resolution;
+            _width = viewport.Width;
+            _height = viewport.Height;
+            _rotation = viewport.Rotation;
+            _center = new ReadOnlyPoint(viewport.Center);
             if (viewport.Extent != null) _extent = new BoundingBox(viewport.Extent);
             if (viewport.WindowExtent != null) _windowExtent = new Quad(viewport.WindowExtent);
 
@@ -76,7 +77,7 @@ namespace Mapsui
             get => _center;
             set
             {
-                // todo: Consider making setters private or removeing Set methods
+                // todo: Consider making setters private or removing Set methods
                 _center = value;
                 OnViewportChanged();
             }

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Point
    ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -97,8 +97,8 @@ value and a y-coordinate value. The boundary of a Point is the empty set.</p>
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Mapsui.Geometries.IGeometry.html">IGeometry</a></div>
-    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="Mapsui.Geometries.Geometry.html">Geometry</a>&gt;</div>
-    <div><span class="xref">IComparable</span>&lt;<a class="xref" href="Mapsui.Geometries.Point.html">Point</a>&gt;</div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Mapsui.Geometries.Geometry.html">Geometry</a>&gt;</div>
+    <div><span class="xref">System.IComparable</span>&lt;<a class="xref" href="Mapsui.Geometries.Point.html">Point</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -122,6 +122,21 @@ value and a y-coordinate value. The boundary of a Point is the empty set.</p>
     </div>
     <div>
       <a class="xref" href="Mapsui.Geometries.Geometry.html#Mapsui_Geometries_Geometry_GeomFromWKB_System_Byte___">Geometry.GeomFromWKB(Byte[])</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Mapsui.Geometries.html">Mapsui.Geometries</a></h6>
@@ -1316,20 +1331,29 @@ in hashing algorithms and data structures like a hash table.</p>
       <a class="xref" href="Mapsui.Geometries.IGeometry.html">IGeometry</a>
   </div>
   <div>
-      <span class="xref">IEquatable&lt;&gt;</span>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
   </div>
   <div>
-      <span class="xref">IComparable&lt;&gt;</span>
+      <span class="xref">System.IComparable&lt;T&gt;</span>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Mapsui.Rendering.Skia.PointExtensions.html#Mapsui_Rendering_Skia_PointExtensions_ToSkia_Mapsui_Geometries_Point_">PointExtensions.ToSkia(Point)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mapsui.Geometries.GeometryExtensions.html#Mapsui_Geometries_GeometryExtensions_Copy_Mapsui_Geometries_IGeometry_">GeometryExtensions.Copy(IGeometry)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mapsui.Projection.GeometryIterator.html#Mapsui_Projection_GeometryIterator_AllVertices_Mapsui_Geometries_IGeometry_">GeometryIterator.AllVertices(IGeometry)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mapsui.UI.Wpf.PointExtensions.html#Mapsui_UI_Wpf_PointExtensions_ApplyScale_Mapsui_Geometries_Point_System_Double_">PointExtensions.ApplyScale(Point, Double)</a>
+  </div>
   <div>
       <a class="xref" href="Mapsui.UI.Android.PointExtensions.html#Mapsui_UI_Android_PointExtensions_ToDeviceIndependentUnits_Mapsui_Geometries_Point_System_Single_">PointExtensions.ToDeviceIndependentUnits(Point, Single)</a>
   </div>
   <div>
       <a class="xref" href="Mapsui.UI.Forms.Extensions.PositionExtensions.html#Mapsui_UI_Forms_Extensions_PositionExtensions_ToForms_Mapsui_Geometries_Point_">PositionExtensions.ToForms(Point)</a>
-  </div>
-  <div>
-      <a class="xref" href="Mapsui.UI.Wpf.PointExtensions.html#Mapsui_UI_Wpf_PointExtensions_ApplyScale_Mapsui_Geometries_Point_System_Double_">PointExtensions.ApplyScale(Point, Double)</a>
   </div>
 </article>
           </div>

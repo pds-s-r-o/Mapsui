@@ -9,8 +9,13 @@
 | Build docs | [![Build status](https://ci.appveyor.com/api/projects/status/c8hcfeoafmf51gin/branch/master?svg=true)](https://ci.appveyor.com/project/pauldendulk/mapsui-373p1/branch/master) |
 
 ## News
-- 2019 januari 5: As of v2.0 beta.13 there is a [separate nuget package](https://www.nuget.org/packages/Mapsui.Forms/) for Xamarin.Forms. It contains a MapControl and also a MapView component which has additional functionality out of the box. 
-- 2019 januari 5: Added a [v2.0 upgrade guide](https://mapsui.github.io/Mapsui/documentation/v2.0-upgrade-guide.html)
+- 2020  march 10: Follow Mapsui on Twitter https://twitter.com/mapsui
+- 2020 march 7: Thanks to @charlenni Mapsui now supports *Custom Style Renderers* which allows users to render a feature any way they like using SkiaSharp. Documentation and samples [here](https://mapsui.com/documentation/custom-style-renders.html).
+  - ![custom stye renderer](https://raw.githubusercontent.com/Mapsui/Mapsui/master/docfx/documentation/images/special.gif)
+- 2020 march 7: Now using hardware acceleration for Android and iOS.
+- 2020 march 7: Rida Noor created a [Tutorial](https://mapsui.com/documentation/tutorials.html) and [sample](https://github.com/RidaNoor/Mapsui-MVVMCross) for MVVM support.
+- 2020 march 7: We are approaching a 2.0 release. Currently no new features planned and no known blocking bugs.
+- 2020 februari 2: We have a gitter channel https://gitter.im/Mapsui/Lobby
 
 ## Mapsui (pronounced map-su-wii)
 
@@ -36,7 +41,7 @@ The best way to get going with Mapsui is by using the Samples. If you clone the 
 If you have a question please submit an issue [here](https://github.com/mapsui/Mapsui/issues)
 
 ## Contributing
-See the [guidelines](CONTRIBUTING.md)
+See the [guidelines](http://mapsui.com/documentation/Contributors-Guidelines.html)
 
 ## Thanks go to
 - ReSharper for providing free open source licenses for Mapsui
@@ -49,6 +54,12 @@ See the [guidelines](CONTRIBUTING.md)
 - **UWP** - Windows Store on Windows 10 build 10586
 - **Android** - Xamarin.Android on API Level 19 (v4.4 - Kit Kat)
 - **iOS** - Xamarin.iOS
+
+## Sponsors
+
+We are delighted with our first gold sponsor Sebastian Kruse, who has also contributed to Mapsui with informed test reports and expert advice.
+
+[Sebastian Kruse](https://github.com/Sebastian1989101)
 
 ## License 
 

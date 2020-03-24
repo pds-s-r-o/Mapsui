@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class GeometryToWKT
    ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -91,11 +91,35 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">GeometryToWKT</span></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Mapsui.Geometries.WellKnownText.html">Mapsui.Geometries.WellKnownText</a></h6>
   <h6><strong>Assembly</strong>: Mapsui.Geometries.dll</h6>
   <h5 id="Mapsui_Geometries_WellKnownText_GeometryToWKT_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class GeometryToWKT : object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class GeometryToWKT</code></pre>
   </div>
   <h5 id="Mapsui_Geometries_WellKnownText_GeometryToWKT_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p><p>The Well-Known Text (WKT) representation of Geometry is designed to exchange geometry data in ASCII form.</p>
@@ -157,13 +181,13 @@ Features Specification)</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/Mapsui/Mapsui/new/master/apiSpec/new?filename=Mapsui_Geometries_WellKnownText_GeometryToWKT_Write_Mapsui_Geometries_IGeometry_StringWriter_.md&amp;value=---%0Auid%3A%20Mapsui.Geometries.WellKnownText.GeometryToWKT.Write(Mapsui.Geometries.IGeometry%2CStringWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Mapsui/Mapsui/new/master/apiSpec/new?filename=Mapsui_Geometries_WellKnownText_GeometryToWKT_Write_Mapsui_Geometries_IGeometry_System_IO_StringWriter_.md&amp;value=---%0Auid%3A%20Mapsui.Geometries.WellKnownText.GeometryToWKT.Write(Mapsui.Geometries.IGeometry%2CSystem.IO.StringWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/Mapsui/Mapsui/blob/master/Mapsui.Geometries/Converters/WellKnownText/GeometryToWKT.cs/#L110">View Source</a>
   </span>
   <a id="Mapsui_Geometries_WellKnownText_GeometryToWKT_Write_" data-uid="Mapsui.Geometries.WellKnownText.GeometryToWKT.Write*"></a>
-  <h4 id="Mapsui_Geometries_WellKnownText_GeometryToWKT_Write_Mapsui_Geometries_IGeometry_StringWriter_" data-uid="Mapsui.Geometries.WellKnownText.GeometryToWKT.Write(Mapsui.Geometries.IGeometry,StringWriter)">Write(IGeometry, StringWriter)</h4>
+  <h4 id="Mapsui_Geometries_WellKnownText_GeometryToWKT_Write_Mapsui_Geometries_IGeometry_System_IO_StringWriter_" data-uid="Mapsui.Geometries.WellKnownText.GeometryToWKT.Write(Mapsui.Geometries.IGeometry,System.IO.StringWriter)">Write(IGeometry, StringWriter)</h4>
   <div class="markdown level1 summary"><p>Converts a Geometry to its Well-known Text representation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -188,14 +212,14 @@ Features Specification)</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">StringWriter</span></td>
+        <td><span class="xref">System.IO.StringWriter</span></td>
         <td><span class="parametername">writer</span></td>
         <td><p>Stream to write out the geometry&apos;s text representation.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Mapsui_Geometries_WellKnownText_GeometryToWKT_Write_Mapsui_Geometries_IGeometry_StringWriter__remarks">Remarks</h5>
+  <h5 id="Mapsui_Geometries_WellKnownText_GeometryToWKT_Write_Mapsui_Geometries_IGeometry_System_IO_StringWriter__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Geometry is written to the output stream as &lt;Gemoetry Tagged Text&gt; string (see the OpenGIS
 Simple Features Specification).</p>
 </div>

@@ -12,12 +12,12 @@ using Xamarin.Forms;
 
 namespace Mapsui.UI.Forms
 {
-    public sealed class Polygon : Drawable
+    public class Polygon : Drawable
     {
         public static readonly BindableProperty FillColorProperty = BindableProperty.Create(nameof(FillColor), typeof(Xamarin.Forms.Color), typeof(Polygon), Xamarin.Forms.Color.DarkGray);
 
-        private readonly ObservableCollection<Position> _positions = new ObservableCollection<Position>();
-        private readonly ObservableCollection<Position[]> _holes = new ObservableCollection<Position[]>();
+        private readonly ObservableRangeCollection<Position> _positions = new ObservableRangeCollection<Position>();
+        private readonly ObservableRangeCollection<Position[]> _holes = new ObservableRangeCollection<Position[]>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Mapsui.UI.Forms.Polygon"/> class.
@@ -69,6 +69,12 @@ namespace Mapsui.UI.Forms
                     break;
                 case nameof(FillColor):
                     ((VectorStyle)Feature.Styles.First()).Fill = new Brush(FillColor.ToMapsui());
+                    break;
+                case nameof(StrokeColor):
+                    ((VectorStyle)Feature.Styles.First()).Outline.Color = StrokeColor.ToMapsui();
+                    break;
+                case nameof(StrokeWidth):
+                    ((VectorStyle)Feature.Styles.First()).Outline.Width = StrokeWidth;
                     break;
             }
         }

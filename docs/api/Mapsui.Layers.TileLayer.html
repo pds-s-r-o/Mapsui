@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TileLayer
    ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -95,7 +95,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Mapsui.Layers.ILayer.html">ILayer</a></div>
-    <div><span class="xref">INotifyPropertyChanged</span></div>
+    <div><span class="xref">System.ComponentModel.INotifyPropertyChanged</span></div>
     <div><a class="xref" href="Mapsui.Fetcher.IAsyncDataFetcher.html">IAsyncDataFetcher</a></div>
   </div>
   <div class="inheritedMembers">
@@ -166,6 +166,24 @@
     <div>
       <a class="xref" href="Mapsui.Layers.BaseLayer.html#Mapsui_Layers_BaseLayer_OnDataChanged_Mapsui_Fetcher_DataChangedEventArgs_">BaseLayer.OnDataChanged(DataChangedEventArgs)</a>
     </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Mapsui.Layers.html">Mapsui.Layers</a></h6>
   <h6><strong>Assembly</strong>: Mapsui.dll</h6>
@@ -177,53 +195,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/Mapsui/Mapsui/new/master/apiSpec/new?filename=Mapsui_Layers_TileLayer__ctor_Func_ITileSource__.md&amp;value=---%0Auid%3A%20Mapsui.Layers.TileLayer.%23ctor(Func%7BITileSource%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Mapsui/Mapsui/blob/master/Mapsui/Layers/TileLayer.cs/#L54">View Source</a>
-  </span>
-  <a id="Mapsui_Layers_TileLayer__ctor_" data-uid="Mapsui.Layers.TileLayer.#ctor*"></a>
-  <h4 id="Mapsui_Layers_TileLayer__ctor_Func_ITileSource__" data-uid="Mapsui.Layers.TileLayer.#ctor(Func{ITileSource})">TileLayer(Func&lt;ITileSource&gt;)</h4>
-  <div class="markdown level1 summary"><p>Create tile layer from tile source initializer function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TileLayer(Func&lt;ITileSource&gt; tileSourceInitializer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">ITileSource</span>&gt;</td>
-        <td><span class="parametername">tileSourceInitializer</span></td>
-        <td><p>Initializer to create a tile layer source</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/Mapsui/Mapsui/new/master/apiSpec/new?filename=Mapsui_Layers_TileLayer__ctor_ITileSource_System_Int32_System_Int32_System_Int32_Mapsui_Fetcher_IFetchStrategy_Mapsui_Rendering_IRenderGetStrategy_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Mapsui.Layers.TileLayer.%23ctor(ITileSource%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CMapsui.Fetcher.IFetchStrategy%2CMapsui.Rendering.IRenderGetStrategy%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Mapsui/Mapsui/new/master/apiSpec/new?filename=Mapsui_Layers_TileLayer__ctor_BruTile_ITileSource_System_Int32_System_Int32_System_Int32_Mapsui_Fetcher_IFetchStrategy_Mapsui_Rendering_IRenderGetStrategy_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Mapsui.Layers.TileLayer.%23ctor(BruTile.ITileSource%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CMapsui.Fetcher.IFetchStrategy%2CMapsui.Rendering.IRenderGetStrategy%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/Mapsui/Mapsui/blob/master/Mapsui/Layers/TileLayer.cs/#L81">View Source</a>
   </span>
   <a id="Mapsui_Layers_TileLayer__ctor_" data-uid="Mapsui.Layers.TileLayer.#ctor*"></a>
-  <h4 id="Mapsui_Layers_TileLayer__ctor_ITileSource_System_Int32_System_Int32_System_Int32_Mapsui_Fetcher_IFetchStrategy_Mapsui_Rendering_IRenderGetStrategy_System_Int32_System_Int32_" data-uid="Mapsui.Layers.TileLayer.#ctor(ITileSource,System.Int32,System.Int32,System.Int32,Mapsui.Fetcher.IFetchStrategy,Mapsui.Rendering.IRenderGetStrategy,System.Int32,System.Int32)">TileLayer(ITileSource, Int32, Int32, Int32, IFetchStrategy, IRenderGetStrategy, Int32, Int32)</h4>
+  <h4 id="Mapsui_Layers_TileLayer__ctor_BruTile_ITileSource_System_Int32_System_Int32_System_Int32_Mapsui_Fetcher_IFetchStrategy_Mapsui_Rendering_IRenderGetStrategy_System_Int32_System_Int32_" data-uid="Mapsui.Layers.TileLayer.#ctor(BruTile.ITileSource,System.Int32,System.Int32,System.Int32,Mapsui.Fetcher.IFetchStrategy,Mapsui.Rendering.IRenderGetStrategy,System.Int32,System.Int32)">TileLayer(ITileSource, Int32, Int32, Int32, IFetchStrategy, IRenderGetStrategy, Int32, Int32)</h4>
   <div class="markdown level1 summary"><p>Create tile layer for given tile source</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TileLayer(ITileSource source = null, int minTiles = 200, int maxTiles = 300, int maxRetries = 2, IFetchStrategy fetchStrategy = null, IRenderGetStrategy renderGetStrategy = null, int minExtraTiles = null, int maxExtraTiles = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TileLayer(ITileSource source = null, int minTiles = 200, int maxTiles = 300, int maxRetries = 2, IFetchStrategy fetchStrategy = null, IRenderGetStrategy renderGetStrategy = null, int minExtraTiles = -1, int maxExtraTiles = -1)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -236,7 +220,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ITileSource</span></td>
+        <td><span class="xref">BruTile.ITileSource</span></td>
         <td><span class="parametername">source</span></td>
         <td><p>Tile source to use for this layer</p>
 </td>
@@ -280,6 +264,40 @@
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">maxExtraTiles</span></td>
         <td><p>Number of maximum extra tiles for memory cache</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Mapsui/Mapsui/new/master/apiSpec/new?filename=Mapsui_Layers_TileLayer__ctor_System_Func_BruTile_ITileSource__.md&amp;value=---%0Auid%3A%20Mapsui.Layers.TileLayer.%23ctor(System.Func%7BBruTile.ITileSource%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Mapsui/Mapsui/blob/master/Mapsui/Layers/TileLayer.cs/#L54">View Source</a>
+  </span>
+  <a id="Mapsui_Layers_TileLayer__ctor_" data-uid="Mapsui.Layers.TileLayer.#ctor*"></a>
+  <h4 id="Mapsui_Layers_TileLayer__ctor_System_Func_BruTile_ITileSource__" data-uid="Mapsui.Layers.TileLayer.#ctor(System.Func{BruTile.ITileSource})">TileLayer(Func&lt;ITileSource&gt;)</h4>
+  <div class="markdown level1 summary"><p>Create tile layer from tile source initializer function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileLayer(Func&lt;ITileSource&gt; tileSourceInitializer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">BruTile.ITileSource</span>&gt;</td>
+        <td><span class="parametername">tileSourceInitializer</span></td>
+        <td><p>Initializer to create a tile layer source</p>
 </td>
       </tr>
     </tbody>
@@ -345,7 +363,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IReadOnlyList</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<span class="xref">System.Double</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -378,7 +396,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ITileSource</span></td>
+        <td><span class="xref">BruTile.ITileSource</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -467,7 +485,7 @@ the threads will terminate naturally. It will just take a little longer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Mapsui.Providers.IFeature.html">IFeature</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Mapsui.Providers.IFeature.html">IFeature</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -581,7 +599,7 @@ to fetch data, only on the drag end.</p>
       <a class="xref" href="Mapsui.Layers.ILayer.html">ILayer</a>
   </div>
   <div>
-      <span class="xref">INotifyPropertyChanged</span>
+      <span class="xref">System.ComponentModel.INotifyPropertyChanged</span>
   </div>
   <div>
       <a class="xref" href="Mapsui.Fetcher.IAsyncDataFetcher.html">IAsyncDataFetcher</a>

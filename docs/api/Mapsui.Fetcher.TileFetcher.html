@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TileFetcher
    ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -90,28 +90,57 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">TileFetcher</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.ComponentModel.INotifyPropertyChanged</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Mapsui.Fetcher.html">Mapsui.Fetcher</a></h6>
   <h6><strong>Assembly</strong>: Mapsui.dll</h6>
   <h5 id="Mapsui_Fetcher_TileFetcher_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TileFetcher : INotifyPropertyChanged</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use TileFetchDispatcher and FetchMachine&quot;)]
+public class TileFetcher : INotifyPropertyChanged</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/Mapsui/Mapsui/new/master/apiSpec/new?filename=Mapsui_Fetcher_TileFetcher__ctor_ITileSource_MemoryCache_Mapsui_Providers_Feature__System_Int32_System_Int32_Mapsui_Fetcher_IFetchStrategy_.md&amp;value=---%0Auid%3A%20Mapsui.Fetcher.TileFetcher.%23ctor(ITileSource%2CMemoryCache%7BMapsui.Providers.Feature%7D%2CSystem.Int32%2CSystem.Int32%2CMapsui.Fetcher.IFetchStrategy)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Mapsui/Mapsui/new/master/apiSpec/new?filename=Mapsui_Fetcher_TileFetcher__ctor_BruTile_ITileSource_BruTile_Cache_MemoryCache_Mapsui_Providers_Feature__System_Int32_System_Int32_Mapsui_Fetcher_IFetchStrategy_.md&amp;value=---%0Auid%3A%20Mapsui.Fetcher.TileFetcher.%23ctor(BruTile.ITileSource%2CBruTile.Cache.MemoryCache%7BMapsui.Providers.Feature%7D%2CSystem.Int32%2CSystem.Int32%2CMapsui.Fetcher.IFetchStrategy)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/Mapsui/Mapsui/blob/master/Mapsui/Fetcher/TileFetcher.cs/#L55">View Source</a>
   </span>
   <a id="Mapsui_Fetcher_TileFetcher__ctor_" data-uid="Mapsui.Fetcher.TileFetcher.#ctor*"></a>
-  <h4 id="Mapsui_Fetcher_TileFetcher__ctor_ITileSource_MemoryCache_Mapsui_Providers_Feature__System_Int32_System_Int32_Mapsui_Fetcher_IFetchStrategy_" data-uid="Mapsui.Fetcher.TileFetcher.#ctor(ITileSource,MemoryCache{Mapsui.Providers.Feature},System.Int32,System.Int32,Mapsui.Fetcher.IFetchStrategy)">TileFetcher(ITileSource, MemoryCache&lt;Feature&gt;, Int32, Int32, IFetchStrategy)</h4>
+  <h4 id="Mapsui_Fetcher_TileFetcher__ctor_BruTile_ITileSource_BruTile_Cache_MemoryCache_Mapsui_Providers_Feature__System_Int32_System_Int32_Mapsui_Fetcher_IFetchStrategy_" data-uid="Mapsui.Fetcher.TileFetcher.#ctor(BruTile.ITileSource,BruTile.Cache.MemoryCache{Mapsui.Providers.Feature},System.Int32,System.Int32,Mapsui.Fetcher.IFetchStrategy)">TileFetcher(ITileSource, MemoryCache&lt;Feature&gt;, Int32, Int32, IFetchStrategy)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TileFetcher(ITileSource tileSource, MemoryCache&lt;Feature&gt; memoryCache, int maxAttempts = null, int maxThreads = null, IFetchStrategy strategy = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TileFetcher(ITileSource tileSource, MemoryCache&lt;Feature&gt; memoryCache, int maxAttempts = 2, int maxThreads = 2, IFetchStrategy strategy = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -124,12 +153,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ITileSource</span></td>
+        <td><span class="xref">BruTile.ITileSource</span></td>
         <td><span class="parametername">tileSource</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">MemoryCache</span>&lt;<a class="xref" href="Mapsui.Providers.Feature.html">Feature</a>&gt;</td>
+        <td><span class="xref">BruTile.Cache.MemoryCache</span>&lt;<a class="xref" href="Mapsui.Providers.Feature.html">Feature</a>&gt;</td>
         <td><span class="parametername">memoryCache</span></td>
         <td></td>
       </tr>
@@ -164,7 +193,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const int DefaultMaxAttempts = null</code></pre>
+    <pre><code class="lang-csharp hljs">public const int DefaultMaxAttempts = 2</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -193,7 +222,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const int DefaultMaxThreads = null</code></pre>
+    <pre><code class="lang-csharp hljs">public const int DefaultMaxThreads = 2</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -381,11 +410,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">PropertyChangedEventHandler</span></td>
+        <td><span class="xref">System.ComponentModel.PropertyChangedEventHandler</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.ComponentModel.INotifyPropertyChanged</span>
+  </div>
 </article>
           </div>
           

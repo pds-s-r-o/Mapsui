@@ -2,6 +2,8 @@
 ## [Quickstart WPF](getting-started-wpf.md)
 ## [Quickstart Android](getting-started-android.md)
 ## [Samples](samples.md)
+## [Tutorials](tutorials.md)
+## [How to work with Mapsui](How-to-work-with-Mapsui.md)
 ## [Roadmap](Roadmap.md)
 ## [Frequently Asked Questions](faq.md)
 ## [Mapsui 2.0](Mapsui-2.0.md)
@@ -12,6 +14,7 @@
 ## [Asynchronous Data Fetching](Async-Fetching.md)
 ## [Skia Scale](skia-scale.md)
 ## [Projections](projections.md)
+## [Custom Style Renderers](custom-style-renders.md)
 # Developing Mapsui
 ## [Contributors Guidelines](Contributors-Guidelines.md)
 ## [Development Constraints](Development-constraints.md)
