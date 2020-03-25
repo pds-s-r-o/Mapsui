@@ -199,6 +199,9 @@ namespace Mapsui.Rendering.Skia
                 Paint.Style = SKPaintStyle.StrokeAndFill;
                 Paint.Color = style.Halo.Color.ToSkia(layerOpacity);
                 Paint.StrokeWidth = (float)style.Halo.Width * 2;
+                Paint.StrokeJoin = style.Halo.StrokeJoin.ToSkia();
+                Paint.StrokeCap = style.Halo.PenStrokeCap.ToSkia();
+                Paint.StrokeMiter = style.Halo.StrokeMiterLimit;
 
                 if (lines != null)
                 {
