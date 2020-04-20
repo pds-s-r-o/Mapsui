@@ -16,11 +16,10 @@ namespace Mapsui.Rendering.Skia
 
         private static readonly SKPaint Paint = new SKPaint
         {
-            IsAntialias = false,
+            IsAntialias = true,
             IsStroke = false,
             FakeBoldText = false,
             IsEmbeddedBitmapText = true,
-            FilterQuality = SKFilterQuality.None
         };
 
         public static void DrawAsBitmap(SKCanvas canvas, LabelStyle style, IFeature feature, float x, float y, float layerOpacity)
