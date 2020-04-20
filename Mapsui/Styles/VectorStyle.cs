@@ -23,15 +23,20 @@ namespace Mapsui.Styles
         /// Fillstyle for Polygon geometries
         /// </summary>
         public Brush Fill { get; set; }
-        
+
+        /// <summary>
+        /// Radius for Point geometries
+        /// </summary>
+        public float? PointRadius { get; set; }
+
         public override bool Equals(object obj)
-        {
-            if (!(obj is VectorStyle))
             {
-                return false;
+                if (!(obj is VectorStyle))
+                {
+                    return false;
+                }
+                return Equals((VectorStyle)obj);
             }
-            return Equals((VectorStyle)obj);
-        }
 
         public bool Equals(VectorStyle vectorStyle)
         {

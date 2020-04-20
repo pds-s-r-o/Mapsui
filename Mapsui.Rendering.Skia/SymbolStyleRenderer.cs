@@ -40,12 +40,12 @@ namespace Mapsui.Rendering.Skia
         public static void Draw(SKCanvas canvas, VectorStyle vectorStyle,
             float opacity, SymbolType symbolType = SymbolType.Ellipse)
         {
-            var width = (float)SymbolStyle.DefaultWidth;
+            var width = vectorStyle.PointRadius ?? (float)SymbolStyle.DefaultWidth;
             var halfWidth = width / 2;
-            var halfHeight = (float)SymbolStyle.DefaultHeight / 2;
+            var height = vectorStyle.PointRadius ?? (float)SymbolStyle.DefaultHeight;
+            var halfHeight = height / 2;
 
             var fillPaint = CreateFillPaint(vectorStyle.Fill, opacity);
-
             var linePaint = CreateLinePaint(vectorStyle.Outline, opacity);
 
             switch (symbolType)
