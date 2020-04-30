@@ -109,9 +109,6 @@ namespace Mapsui.UI.Android
         private void CanvasOnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
         {
             if (PixelDensity <= 0) return;
-
-            e.Surface.Canvas.Scale(PixelDensity, PixelDensity);
-
             Renderer.Render(e.Surface.Canvas, new Viewport(Viewport), _map.Layers, _map.Widgets, _map.BackColor);
         }
 
@@ -441,7 +438,7 @@ namespace Mapsui.UI.Android
 
         private View StartRegularRenderMode()
         {
-            var canvas = new SKCanvasView(Context);
+            var canvas = new SKCanvasView(Context) {IgnorePixelScaling = true};
             canvas.PaintSurface += CanvasOnPaintSurface;
             AddView(canvas);
             return canvas;
