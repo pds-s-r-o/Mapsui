@@ -141,7 +141,11 @@ namespace Mapsui.UI.Android
       var rotateListener = new OnRotateGestureListener();
       _rotateGestureDetector = new RotateGestureDetector(Context, rotateListener);
       var scaleListener = new OnScaleGestureListener();
-      _scaleGestureDetector = new ScaleGestureDetector(Context, scaleListener);
+      _scaleGestureDetector = new ScaleGestureDetector(Context, scaleListener) 
+        { 
+          QuickScaleEnabled = false, 
+          StylusScaleEnabled = false 
+        };
       scaleListener.Scale += _OnScaled;
       scaleListener.ScaleStart += _OnScaleStart;
       rotateListener.Rotate += _OnRotated;
