@@ -4,6 +4,7 @@
     {
         None = 0,
         Dragging = 1,
-        Zooming = 2
+        Zooming = 2,
+        Rotating = 3
     }
 }

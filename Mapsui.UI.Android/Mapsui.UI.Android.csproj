@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations\FlingAnimation.cs" />
     <Compile Include="ExtensionMethods\PointExtensions.cs" />
     <Compile Include="ExtensionMethods\PointFExtensions.cs" />
     <Compile Include="GestureListeners\OnLongClickGestureListener.cs" />
