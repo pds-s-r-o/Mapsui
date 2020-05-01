@@ -233,10 +233,9 @@ namespace Mapsui.UI.Android
       {
         Fling?.Invoke(this, new TappedEventArgs(point, 0));
       };
-      StartAnimation(anim);
 
-      anim.AnimationEnd -= _FlingAnimationEnd;
-      anim.AnimationEnd += _FlingAnimationEnd;
+      anim.PostFling = _FlingEnd;
+      StartAnimation(anim);
     }
 
 
@@ -285,7 +284,7 @@ namespace Mapsui.UI.Android
       return true;
     }
 
-    private void _FlingAnimationEnd(object sender, AnimationEndEventArgs args)
+    private void _FlingEnd()
     {
       FlingEnd?.Invoke(this, null);
     }
