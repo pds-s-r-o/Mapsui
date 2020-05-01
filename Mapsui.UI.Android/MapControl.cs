@@ -33,6 +33,9 @@ namespace Mapsui.UI.Android
     private double _innerRotation;
     private GestureDetector _gestureDetector;
     private OnLongClickGestureListener _onLongClickListener;
+    private RotateGestureDetector _rotateGestureDetector;
+    private ScaleGestureDetector _scaleGestureDetector;
+
     private double _previousAngle;
     private double _previousRadius = 1f;
     private TouchMode _mode = TouchMode.None;
@@ -135,6 +138,14 @@ namespace Mapsui.UI.Android
 
       _onLongClickListener = new OnLongClickGestureListener();
       _gestureDetector = new GestureDetector(Context, _onLongClickListener, null);
+      var rotateListener = new OnRotateGestureListener();
+      _rotateGestureDetector = new RotateGestureDetector(Context, rotateListener);
+      var scaleListener = new OnScaleGestureListener();
+      _scaleGestureDetector = new ScaleGestureDetector(Context, scaleListener);
+      scaleListener.Scale += _OnScaled;
+      scaleListener.ScaleStart += _OnScaleStart;
+      rotateListener.Rotate += _OnRotated;
+      rotateListener.RotateEnd += _OnRotationEnd;
       _gestureDetector.DoubleTap += OnDoubleTapped;
       _onLongClickListener.Flinged += OnFlinged;
       _onLongClickListener.LongClick += OnLongTapped;
@@ -224,6 +235,52 @@ namespace Mapsui.UI.Android
       anim.AnimationEnd += _FlingAnimationEnd;
     }
 
+
+    private bool _OnRotated(RotateGestureDetector detector)
+    {
+      if (Map.RotationLock) return true;
+      if (_scaleGestureDetector.IsInProgress) return true;
+      var rotationDelta = detector.RotationDegreesDelta;
+
+      if (Viewport.Rotation == 0 && Math.Abs(rotationDelta) < UnSnapRotationDegrees) return true;
+      
+      ((LimitedViewport)Viewport).SetRotation(Viewport.Rotation - rotationDelta);
+
+      if (Viewport.Rotation % 360 < ReSnapRotationDegrees || Viewport.Rotation % 360 > 360 - ReSnapRotationDegrees)
+      {
+        ((LimitedViewport)Viewport).SetRotation(0);
+      }
+      
+      RefreshGraphics();
+      _LastZoomTime = DateTime.Now;
+      return true;
+    }
+
+    private void _OnRotationEnd(RotateGestureDetector detector)
+    {
+    }
+
+
+    private double startRotation;
+    private bool _OnScaleStart(ScaleGestureDetector detector)
+    {
+      startRotation = Viewport.Rotation;
+      return true;
+    }
+    private bool _OnScaled(ScaleGestureDetector detector)
+    {
+      if (_rotateGestureDetector.IsInProgress()) return false;
+      /* ((LimitedViewport)Viewport).SetResolution(Viewport.Resolution / detector.ScaleFactor);
+       ((LimitedViewport)Viewport).Transform(new Point(detector.FocusX, detector.FocusY), Viewport.Center, 1, 0);
+       RefreshGraphics();
+       _LastZoomTime = DateTime.Now;
+       Zoom?.Invoke(this, new ZoomedEventArgs(Viewport.Center, detector.ScaleFactor < 1 ? ZoomDirection.ZoomIn : ZoomDirection.ZoomOut));
+       */
+
+      ((LimitedViewport)Viewport).SetRotation(startRotation);
+      return true;
+    }
+
     private void _FlingAnimationEnd(object sender, AnimationEndEventArgs args)
     {
       FlingEnd?.Invoke(this, null);
@@ -257,6 +314,13 @@ namespace Mapsui.UI.Android
     {
       if (_gestureDetector.OnTouchEvent(args.Event))
         return;
+
+      if (args.Event.PointerCount >= 2)
+      {
+        _scaleGestureDetector.OnTouchEvent(args.Event);
+        _rotateGestureDetector.OnTouchEvent(args.Event);
+      }
+
 
       var touchPoints = GetScreenPositions(args.Event, this);
 
@@ -326,7 +390,6 @@ namespace Mapsui.UI.Android
                 }
                 _previousTouch = touch;
 
-
               }
               break;
             case TouchMode.Zooming:
@@ -334,36 +397,13 @@ namespace Mapsui.UI.Android
                 if (touchPoints.Count < 2)
                   return;
 
-          
+
 
                 var (previousTouch, previousRadius, previousAngle) = (_previousTouch, _previousRadius, _previousAngle);
                 var (touch, radius, angle) = GetPinchValues(touchPoints);
                 Zoom?.Invoke(this, new ZoomedEventArgs(touch, ZoomDirection.ZoomIn));
 
-                double rotationDelta = 0;
-
-                if (!Map.RotationLock)
-                {
-                  _innerRotation += angle - previousAngle;
-                  _innerRotation %= 360;
-
-                  if (_innerRotation > 180)
-                    _innerRotation -= 360;
-                  else if (_innerRotation < -180)
-                    _innerRotation += 360;
-
-                  if (Viewport.Rotation == 0 && Math.Abs(_innerRotation) >= Math.Abs(UnSnapRotationDegrees))
-                    rotationDelta = _innerRotation;
-                  else if (Viewport.Rotation != 0)
-                  {
-                    if (Math.Abs(_innerRotation) <= Math.Abs(ReSnapRotationDegrees))
-                      rotationDelta = -Viewport.Rotation;
-                    else
-                      rotationDelta = _innerRotation - Viewport.Rotation;
-                  }
-                }
-
-                _viewport.Transform(touch, previousTouch, radius / previousRadius, rotationDelta);
+                _viewport.Transform(touch, previousTouch, radius / previousRadius);
                 RefreshGraphics();
 
                 (_previousTouch, _previousRadius, _previousAngle) = (touch, radius, angle);
