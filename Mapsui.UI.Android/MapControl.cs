@@ -87,6 +87,21 @@ namespace Mapsui.UI.Android
     /// </summary>
     public event EventHandler<TappedEventArgs> FlingEnd;
 
+    /// <summary>
+    /// Length of fling animation
+    /// </summary>
+    public int? FlingAnimationDuration {get; set;}
+
+    /// <summary>
+    /// Fling velocity gets multiplied by this factor.
+    /// </summary>
+    public double? FlingFactor { get; set; }
+
+    /// <summary>
+    /// Fling deccelerate animation will be interpolated using this factor.
+    /// </summary>
+    public double? FlingDeccelerateFactor { get; set; }
+
     #endregion
 
 
@@ -183,8 +198,8 @@ namespace Mapsui.UI.Android
       var dx = (e.E1.GetX() - e.E2.GetX());
       var dy = (e.E1.GetY() - e.E2.GetY());
 
-      var dxModified = dx * Math.Abs(e.VelocityX) * 0.0001;
-      var dyModified = dy * Math.Abs(e.VelocityY) * 0.0001;
+      var dxModified = dx * Math.Abs(e.VelocityX) * (FlingFactor ?? 0.00025);
+      var dyModified = dy * Math.Abs(e.VelocityY) * (FlingFactor ?? 0.00025);
 
       var pixelCoordinate = new Point(e.E1.GetX() - Left, e.E1.GetY() - Top);
       var pixelCoordinate2 = new Point(e.E1.GetX() - Left  - dxModified, e.E1.GetY() - Top - dyModified);
@@ -192,8 +207,8 @@ namespace Mapsui.UI.Android
       FlingStart?.Invoke(sender, new TappedEventArgs(pixelCoordinate, 1));
 
       var anim = new FlingAnimation(this, pixelCoordinate, pixelCoordinate2);
-      anim.Duration = 1000;
-      anim.Interpolator = new LinearOutSlowInInterpolator();
+      anim.Duration = FlingAnimationDuration ?? 1000;
+      anim.Interpolator = new DecelerateInterpolator((float?)FlingDeccelerateFactor ?? 1f);
       StartAnimation(anim);
 
       anim.AnimationEnd -= _FlingAnimationEnd;
