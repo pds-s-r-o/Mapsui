@@ -22,6 +22,8 @@ namespace Mapsui.UI.Android.Animations
     Point _EndPos;
     Point _InterPos;
 
+    public Action<Point> OnFling;
+
     public FlingAnimation(MapControl mapControl, Point startPosition, Point endPosition)
     {
       _MapControl = mapControl;
@@ -40,6 +42,7 @@ namespace Mapsui.UI.Android.Animations
       _StartPos.X = _InterPos.X;
       _StartPos.Y = _InterPos.Y;
       _MapControl.RefreshGraphics();
+      OnFling?.Invoke(_InterPos);
       base.ApplyTransformation(interpolatedTime, t);
     }
   }

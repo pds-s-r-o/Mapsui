@@ -78,14 +78,19 @@ namespace Mapsui.UI.Android
     public event EventHandler<TappedEventArgs> PointerDown;
 
     /// <summary>
-    /// Called whenever pinch gesture is performed;
+    /// Called whenever fling gesture is started;
     /// </summary>
     public event EventHandler<TappedEventArgs> FlingStart;
 
     /// <summary>
-    /// Called whenever pinch gesture is finished;
+    /// Called whenever fling gesture is finished;
     /// </summary>
     public event EventHandler<TappedEventArgs> FlingEnd;
+
+    /// <summary>
+    /// Called whenever fling is being performed.
+    /// </summary>
+    public event EventHandler<TappedEventArgs> Fling;
 
     /// <summary>
     /// Length of fling animation
@@ -209,6 +214,10 @@ namespace Mapsui.UI.Android
       var anim = new FlingAnimation(this, pixelCoordinate, pixelCoordinate2);
       anim.Duration = FlingAnimationDuration ?? 1000;
       anim.Interpolator = new DecelerateInterpolator((float?)FlingDeccelerateFactor ?? 1f);
+      anim.OnFling = (point) =>
+      {
+        Fling?.Invoke(this, new TappedEventArgs(point, 0));
+      };
       StartAnimation(anim);
 
       anim.AnimationEnd -= _FlingAnimationEnd;
