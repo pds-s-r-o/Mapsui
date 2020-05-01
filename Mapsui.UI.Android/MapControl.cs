@@ -5,6 +5,7 @@ using System.Threading;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
+using Android.Support.V4.View.Animation;
 using Android.Util;
 using Android.Views;
 using Android.Views.Animations;
@@ -13,6 +14,8 @@ using Mapsui.Logging;
 using Mapsui.UI.Android.Animations;
 using Mapsui.UI.Android.GestureListeners;
 using SkiaSharp.Views.Android;
+using static Android.Views.Animations.Animation;
+using static Android.Views.ScaleGestureDetector;
 using Math = System.Math;
 using Point = Mapsui.Geometries.Point;
 
@@ -74,9 +77,17 @@ namespace Mapsui.UI.Android
     /// </summary>
     public event EventHandler<TappedEventArgs> PointerDown;
 
-    #endregion
+    /// <summary>
+    /// Called whenever pinch gesture is performed;
+    /// </summary>
+    public event EventHandler<TappedEventArgs> FlingStart;
 
-    bool IsZooming;
+    /// <summary>
+    /// Called whenever pinch gesture is finished;
+    /// </summary>
+    public event EventHandler<TappedEventArgs> FlingEnd;
+
+    #endregion
 
 
     public MapControl(Context context, IAttributeSet attrs) :
@@ -163,30 +174,35 @@ namespace Mapsui.UI.Android
       LongClick?.Invoke(sender, new TappedEventArgs(position, positionInPixels, 1));
     }
 
-    List<MotionEvent> RecentPointers = new List<MotionEvent>();
 
     private void OnFlinged(object sender, GestureDetector.FlingEventArgs e)
     {
-
-      foreach (var pointer in RecentPointers)
-      {
-        if (pointer.PointerCount != 1) return;
-      }
-
-      if (IsZooming) return;
+      var timespan = DateTime.Now - _LastZoomTime;
+      if (timespan.TotalMilliseconds < 100) return;
 
       var dx = (e.E1.GetX() - e.E2.GetX());
       var dy = (e.E1.GetY() - e.E2.GetY());
+
       var dxModified = dx * Math.Abs(e.VelocityX) * 0.0001;
       var dyModified = dy * Math.Abs(e.VelocityY) * 0.0001;
 
       var pixelCoordinate = new Point(e.E1.GetX() - Left, e.E1.GetY() - Top);
       var pixelCoordinate2 = new Point(e.E1.GetX() - Left  - dxModified, e.E1.GetY() - Top - dyModified);
 
+      FlingStart?.Invoke(sender, new TappedEventArgs(pixelCoordinate, 1));
+
       var anim = new FlingAnimation(this, pixelCoordinate, pixelCoordinate2);
-      anim.Duration = (long)pixelCoordinate.Distance(pixelCoordinate2) * 3;
-      anim.Interpolator = new DecelerateInterpolator();
+      anim.Duration = 1000;
+      anim.Interpolator = new LinearOutSlowInInterpolator();
       StartAnimation(anim);
+
+      anim.AnimationEnd -= _FlingAnimationEnd;
+      anim.AnimationEnd += _FlingAnimationEnd;
+    }
+
+    private void _FlingAnimationEnd(object sender, AnimationEndEventArgs args)
+    {
+      FlingEnd?.Invoke(this, null);
     }
 
     protected override void OnSizeChanged(int width, int height, int oldWidth, int oldHeight)
@@ -210,13 +226,13 @@ namespace Mapsui.UI.Android
       Renderer.Render(args.Surface.Canvas, new Viewport(Viewport), _map.Layers, _map.Widgets, _map.BackColor);
     }
 
+
+    private DateTime _LastZoomTime;
+
     public void MapView_Touch(object sender, TouchEventArgs args)
     {
       if (_gestureDetector.OnTouchEvent(args.Event))
         return;
-
-      if (RecentPointers.Count > 1000) RecentPointers.Clear();
-      RecentPointers.Add(args.Event);
 
       var touchPoints = GetScreenPositions(args.Event, this);
 
@@ -294,7 +310,7 @@ namespace Mapsui.UI.Android
                 if (touchPoints.Count < 2)
                   return;
 
-                IsZooming = true;
+          
 
                 var (previousTouch, previousRadius, previousAngle) = (_previousTouch, _previousRadius, _previousAngle);
                 var (touch, radius, angle) = GetPinchValues(touchPoints);
@@ -328,7 +344,8 @@ namespace Mapsui.UI.Android
 
                 (_previousTouch, _previousRadius, _previousAngle) = (touch, radius, angle);
 
-                IsZooming = false;
+
+                _LastZoomTime = DateTime.Now;
               }
               break;
           }
