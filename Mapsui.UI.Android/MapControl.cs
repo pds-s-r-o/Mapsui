@@ -9,6 +9,7 @@ using Android.Support.V4.View.Animation;
 using Android.Util;
 using Android.Views;
 using Android.Views.Animations;
+using Mapsui.Geometries;
 using Mapsui.Geometries.Utilities;
 using Mapsui.Logging;
 using Mapsui.UI.Android.Animations;
@@ -40,6 +41,8 @@ namespace Mapsui.UI.Android
     private double _previousRadius = 1f;
     private TouchMode _mode = TouchMode.None;
     private Handler _mainLooperHandler;
+
+  
     /// <summary>
     /// Saver for center before last pinch movement
     /// </summary>
@@ -241,21 +244,27 @@ namespace Mapsui.UI.Android
 
     private bool _OnRotated(RotateGestureDetector detector)
     {
-      if (Map.RotationLock) return true;
-      if (_scaleGestureDetector.IsInProgress) return true;
+      if (Map.RotationLock) return false;
+      if (_scaleGestureDetector.IsInProgress) return false;
+
       var rotationDelta = detector.RotationDegreesDelta;
 
+      /*
       if (Viewport.Rotation == 0 && Math.Abs(rotationDelta) < UnSnapRotationDegrees) return true;
       
       ((LimitedViewport)Viewport).SetRotation(Viewport.Rotation - rotationDelta);
 
       if (Viewport.Rotation % 360 < ReSnapRotationDegrees || Viewport.Rotation % 360 > 360 - ReSnapRotationDegrees)
       {
-        ((LimitedViewport)Viewport).SetRotation(0);
-      }
-      
+        ((LimitedViewport)Viewport).SetRotation(0);*/
+
+      ((LimitedViewport)Viewport).SetRotation(Viewport.Rotation - rotationDelta);
+
+
+
+
       RefreshGraphics();
-      _LastZoomTime = DateTime.Now;
+     // _LastZoomTime = DateTime.Now;
       return true;
     }
 
@@ -264,29 +273,40 @@ namespace Mapsui.UI.Android
     }
 
 
-    private double startRotation;
     private bool _OnScaleStart(ScaleGestureDetector detector)
     {
-      startRotation = Viewport.Rotation;
+      PrevFocus = null;
       return true;
     }
+
+
+    private Point PrevFocus;
     private bool _OnScaled(ScaleGestureDetector detector)
     {
       if (_rotateGestureDetector.IsInProgress()) return false;
-      /* ((LimitedViewport)Viewport).SetResolution(Viewport.Resolution / detector.ScaleFactor);
-       ((LimitedViewport)Viewport).Transform(new Point(detector.FocusX, detector.FocusY), Viewport.Center, 1, 0);
+      if (PrevFocus == null) PrevFocus = new Point(detector.FocusX / PixelDensity, detector.FocusY / PixelDensity);
+
+      var currFocus = new Point(detector.FocusX / PixelDensity, detector.FocusY / PixelDensity);
+      var newRes = Viewport.Resolution / detector.ScaleFactor;
+
+      ((LimitedViewport)Viewport).Transform(
+           currFocus,
+           PrevFocus, 
+           Viewport.Resolution / newRes, 0);
+
+
        RefreshGraphics();
        _LastZoomTime = DateTime.Now;
        Zoom?.Invoke(this, new ZoomedEventArgs(Viewport.Center, detector.ScaleFactor < 1 ? ZoomDirection.ZoomIn : ZoomDirection.ZoomOut));
-       */
 
-      ((LimitedViewport)Viewport).SetRotation(startRotation);
+      PrevFocus = currFocus;
       return true;
     }
 
     private void _FlingEnd()
     {
       FlingEnd?.Invoke(this, null);
+      Refresh();
     }
 
     protected override void OnSizeChanged(int width, int height, int oldWidth, int oldHeight)
@@ -312,6 +332,7 @@ namespace Mapsui.UI.Android
 
 
     private DateTime _LastZoomTime;
+   
 
     public void MapView_Touch(object sender, TouchEventArgs args)
     {
@@ -396,11 +417,9 @@ namespace Mapsui.UI.Android
               }
               break;
             case TouchMode.Zooming:
-              {
-                if (touchPoints.Count < 2)
+              /*{
+                if (touchPoints.Count < 2 || _rotateGestureDetector.IsInProgress())
                   return;
-
-
 
                 var (previousTouch, previousRadius, previousAngle) = (_previousTouch, _previousRadius, _previousAngle);
                 var (touch, radius, angle) = GetPinchValues(touchPoints);
@@ -413,7 +432,7 @@ namespace Mapsui.UI.Android
 
 
                 _LastZoomTime = DateTime.Now;
-              }
+              }*/
               break;
           }
           break;
