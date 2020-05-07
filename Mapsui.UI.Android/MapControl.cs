@@ -14,6 +14,7 @@ using Mapsui.Geometries.Utilities;
 using Mapsui.Logging;
 using Mapsui.UI.Android.Animations;
 using Mapsui.UI.Android.GestureListeners;
+using Mapsui.UI.EventArgs;
 using SkiaSharp.Views.Android;
 using static Android.Views.Animations.Animation;
 using static Android.Views.ScaleGestureDetector;
@@ -92,6 +93,11 @@ namespace Mapsui.UI.Android
     /// Called whenever fling gesture is finished;
     /// </summary>
     public event EventHandler<TappedEventArgs> FlingEnd;
+
+    /// <summary>
+    /// Called whenever map is rotated;
+    /// </summary>
+    public event EventHandler<RotatedEventArgs> Rotate;
 
     /// <summary>
     /// Called whenever fling is being performed.
@@ -246,7 +252,7 @@ namespace Mapsui.UI.Android
     {
       RotationDegreesTotal += Math.Abs(detector.RotationDegreesDelta);
       if (Map.RotationLock) return false;
-      if (ScaleFactorTotal > 1.2 || ScaleFactorTotal < 0.8 || RotationDegreesTotal < 30) return true;
+      if (ScaleFactorTotal > 1.2 || ScaleFactorTotal < 0.8 || RotationDegreesTotal < UnSnapRotationDegrees) return true;
 
       var rotationDelta = detector.RotationDegreesDelta;
 
@@ -254,7 +260,7 @@ namespace Mapsui.UI.Android
 
       RefreshGraphics();
 
-      Zoom?.Invoke(this, new ZoomedEventArgs(new Point(), ZoomDirection.ZoomIn));
+      Rotate?.Invoke(this, new RotatedEventArgs(detector.RotationDegreesDelta));
 
       return true;
     }

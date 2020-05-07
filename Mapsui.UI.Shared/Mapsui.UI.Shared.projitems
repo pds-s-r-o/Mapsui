@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ZoomDirection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EventArgs\DraggedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EventArgs\HoveredEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\RotatedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EventArgs\SwipedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TappedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TouchedEventArgs.cs" />
