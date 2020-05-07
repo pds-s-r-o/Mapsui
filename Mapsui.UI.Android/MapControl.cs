@@ -249,22 +249,10 @@ namespace Mapsui.UI.Android
 
       var rotationDelta = detector.RotationDegreesDelta;
 
-      /*
-      if (Viewport.Rotation == 0 && Math.Abs(rotationDelta) < UnSnapRotationDegrees) return true;
-      
       ((LimitedViewport)Viewport).SetRotation(Viewport.Rotation - rotationDelta);
-
-      if (Viewport.Rotation % 360 < ReSnapRotationDegrees || Viewport.Rotation % 360 > 360 - ReSnapRotationDegrees)
-      {
-        ((LimitedViewport)Viewport).SetRotation(0);*/
-
-      ((LimitedViewport)Viewport).SetRotation(Viewport.Rotation - rotationDelta);
-
-
-
 
       RefreshGraphics();
-     // _LastZoomTime = DateTime.Now;
+
       return true;
     }
 
