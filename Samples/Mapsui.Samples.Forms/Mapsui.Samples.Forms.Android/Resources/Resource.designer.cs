@@ -1547,7 +1547,6 @@ namespace Mapsui.Samples.Forms.Droid
 			global::SkiaSharp.Views.Forms.Resource.Style.CardView_Dark = global::Mapsui.Samples.Forms.Droid.Resource.Style.CardView_Dark;
 			global::SkiaSharp.Views.Forms.Resource.Style.CardView_Light = global::Mapsui.Samples.Forms.Droid.Resource.Style.CardView_Light;
 			global::SkiaSharp.Views.Forms.Resource.Style.collectionViewStyle = global::Mapsui.Samples.Forms.Droid.Resource.Style.collectionViewStyle;
-			global::SkiaSharp.Views.Forms.Resource.Style.NestedScrollBarStyle = global::Mapsui.Samples.Forms.Droid.Resource.Style.NestedScrollBarStyle;
 			global::SkiaSharp.Views.Forms.Resource.Style.Platform_AppCompat = global::Mapsui.Samples.Forms.Droid.Resource.Style.Platform_AppCompat;
 			global::SkiaSharp.Views.Forms.Resource.Style.Platform_AppCompat_Light = global::Mapsui.Samples.Forms.Droid.Resource.Style.Platform_AppCompat_Light;
 			global::SkiaSharp.Views.Forms.Resource.Style.Platform_MaterialComponents = global::Mapsui.Samples.Forms.Droid.Resource.Style.Platform_MaterialComponents;
