@@ -270,39 +270,39 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Mapsui.Geometries\Mapsui.Geometries.csproj">
+    <ProjectReference Include="..\..\..\Mapsui.Geometries\Mapsui.Geometries.csproj">
       <Project>{ee55b62d-ffa2-4c24-a4ad-7a47ace55ce5}</Project>
       <Name>Mapsui.Geometries</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Mapsui.Rendering.Skia\Mapsui.Rendering.Skia.csproj">
+    <ProjectReference Include="..\..\..\Mapsui.Rendering.Skia\Mapsui.Rendering.Skia.csproj">
       <Project>{ae632270-38ca-4203-93a5-8612629cd944}</Project>
       <Name>Mapsui.Rendering.Skia</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Mapsui.Rendering.Xaml\Mapsui.Rendering.Xaml.csproj">
+    <ProjectReference Include="..\..\..\Mapsui.Rendering.Xaml\Mapsui.Rendering.Xaml.csproj">
       <Project>{5dc32b05-0b6e-478f-a9fb-57762aa2f814}</Project>
       <Name>Mapsui.Rendering.Xaml</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Mapsui.UI.Wpf\Mapsui.UI.Wpf.csproj">
+    <ProjectReference Include="..\..\..\Mapsui.UI.Wpf\Mapsui.UI.Wpf.csproj">
       <Project>{ae693902-feda-4034-a7c5-9aa9872f7878}</Project>
       <Name>Mapsui.UI.Wpf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Mapsui\Mapsui.csproj">
+    <ProjectReference Include="..\..\..\Mapsui\Mapsui.csproj">
       <Project>{d74c052a-c07e-4b37-a898-134218aca5c9}</Project>
       <Name>Mapsui</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Tests\Mapsui.Tests.Common\Mapsui.Tests.Common.csproj">
+    <ProjectReference Include="..\..\..\Tests\Mapsui.Tests.Common\Mapsui.Tests.Common.csproj">
       <Project>{81BB36D2-4D01-44E3-9024-E7CBD10DA316}</Project>
       <Name>Mapsui.Tests.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mapsui.Samples.Common.Desktop\Mapsui.Samples.Common.Desktop.csproj">
+    <ProjectReference Include="..\..\Mapsui.Samples.Common.Desktop\Mapsui.Samples.Common.Desktop.csproj">
       <Project>{086f5a3a-7d9a-4125-8e67-0ebc72aab246}</Project>
       <Name>Mapsui.Samples.Common.Desktop</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mapsui.Samples.Common\Mapsui.Samples.Common.csproj">
+    <ProjectReference Include="..\..\Mapsui.Samples.Common\Mapsui.Samples.Common.csproj">
       <Project>{508ae811-a03a-4138-8ccc-abde03c67010}</Project>
       <Name>Mapsui.Samples.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mapsui.Samples.CustomWidget\Mapsui.Samples.CustomWidget.csproj">
+    <ProjectReference Include="..\..\Mapsui.Samples.CustomWidget\Mapsui.Samples.CustomWidget.csproj">
       <Project>{3eb5d6aa-8b52-4e93-9000-61eee6d6b044}</Project>
       <Name>Mapsui.Samples.CustomWidget</Name>
     </ProjectReference>

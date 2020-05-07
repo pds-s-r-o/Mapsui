@@ -150,7 +150,7 @@ namespace Mapsui.UI.Android
           StylusScaleEnabled = false 
         };
       scaleListener.Scale += _OnScaled;
-      scaleListener.ScaleStart += _OnScaleStart;
+      scaleListener.ScaleEnd += _OnScaleEnd;
       rotateListener.Rotate += _OnRotated;
       rotateListener.RotateEnd += _OnRotationEnd;
       _gestureDetector.DoubleTap += OnDoubleTapped;
@@ -244,8 +244,10 @@ namespace Mapsui.UI.Android
 
     private bool _OnRotated(RotateGestureDetector detector)
     {
+      RotationDegreesTotal += Math.Abs(detector.RotationDegreesDelta);
       if (Map.RotationLock) return false;
-      if (_scaleGestureDetector.IsInProgress) return false;
+      Console.WriteLine("ROTDELTA: " + detector.RotationDegreesDelta);
+      if (ScaleFactorTotal > 1.2 || ScaleFactorTotal < 0.8 || RotationDegreesTotal < 15) return true;
 
       var rotationDelta = detector.RotationDegreesDelta;
 
@@ -258,20 +260,25 @@ namespace Mapsui.UI.Android
 
     private void _OnRotationEnd(RotateGestureDetector detector)
     {
+      RotationDegreesTotal = 0f;
     }
 
 
-    private bool _OnScaleStart(ScaleGestureDetector detector)
+    private void _OnScaleEnd(ScaleGestureDetector detector)
     {
       PrevFocus = null;
-      return true;
+      ScaleFactorTotal = 1f;
     }
 
 
     private Point PrevFocus;
+    private float ScaleFactorTotal = 1f;
+    private float RotationDegreesTotal = 0f;
+
     private bool _OnScaled(ScaleGestureDetector detector)
     {
-      if (_rotateGestureDetector.IsInProgress()) return false;
+      ScaleFactorTotal *= detector.ScaleFactor;
+      if (ScaleFactorTotal < 1.2 && ScaleFactorTotal > 0.8) return true;
       if (PrevFocus == null) PrevFocus = new Point(detector.FocusX / PixelDensity, detector.FocusY / PixelDensity);
 
       var currFocus = new Point(detector.FocusX / PixelDensity, detector.FocusY / PixelDensity);

@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Mapsui.Samples.Forms.Droid</RootNamespace>
     <AssemblyName>Mapsui.Samples.Forms.Android</AssemblyName>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -79,15 +79,13 @@
       <HintPath>..\..\..\packages\Reminiscence.1.2.0\lib\netstandard2.0\Reminiscence.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SkiaSharp.1.68.2-preview.39\lib\monoandroid1.0\SkiaSharp.dll</HintPath>
-      <HintPath>..\..\..\packages\SkiaSharp.1.68.1.1\lib\MonoAndroid\SkiaSharp.dll</HintPath>
+      <HintPath>..\..\..\packages\SkiaSharp.1.68.2.1\lib\monoandroid1.0\SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp.Extended.Svg, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SkiaSharp.Svg.1.60.0\lib\netstandard2.0\SkiaSharp.Extended.Svg.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp.Views.Android, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SkiaSharp.Views.1.68.2-preview.17\lib\monoandroid1.0\SkiaSharp.Views.Android.dll</HintPath>
-      <HintPath>..\..\..\packages\SkiaSharp.Views.1.68.1.1\lib\MonoAndroid\SkiaSharp.Views.Android.dll</HintPath>
+      <HintPath>..\..\..\packages\SkiaSharp.Views.1.68.2.1\lib\monoandroid1.0\SkiaSharp.Views.Android.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp.Views.Forms, Version=1.68.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SkiaSharp.Views.Forms.1.68.0\lib\MonoAndroid\SkiaSharp.Views.Forms.dll</HintPath>
