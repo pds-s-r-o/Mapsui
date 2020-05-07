@@ -235,7 +235,7 @@ namespace Mapsui.UI.Android
       FlingStart?.Invoke(sender, new TappedEventArgs(pixelCoordinate, 1));
 
       var anim = new FlingAnimation(this, pixelCoordinate, pixelCoordinate2);
-      anim.Duration = FlingAnimationDuration ?? 1000;
+      anim.Duration = FlingAnimationDuration ?? 500;
       anim.Interpolator = new DecelerateInterpolator((float?)FlingDeccelerateFactor ?? 1f);
       anim.OnFling = (point) =>
       {
