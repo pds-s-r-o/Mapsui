@@ -14,7 +14,6 @@ using Mapsui.Geometries.Utilities;
 using Mapsui.Logging;
 using Mapsui.UI.Android.Animations;
 using Mapsui.UI.Android.GestureListeners;
-using Mapsui.UI.EventArgs;
 using SkiaSharp.Views.Android;
 using static Android.Views.Animations.Animation;
 using static Android.Views.ScaleGestureDetector;

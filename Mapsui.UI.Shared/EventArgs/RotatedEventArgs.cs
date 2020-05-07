@@ -1,4 +1,6 @@
-﻿namespace Mapsui.UI.EventArgs
+﻿using System;
+
+namespace Mapsui.UI
 {
 	public class RotatedEventArgs : EventArgs
 	{
