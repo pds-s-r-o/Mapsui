@@ -246,14 +246,15 @@ namespace Mapsui.UI.Android
     {
       RotationDegreesTotal += Math.Abs(detector.RotationDegreesDelta);
       if (Map.RotationLock) return false;
-      Console.WriteLine("ROTDELTA: " + detector.RotationDegreesDelta);
-      if (ScaleFactorTotal > 1.2 || ScaleFactorTotal < 0.8 || RotationDegreesTotal < 15) return true;
+      if (ScaleFactorTotal > 1.2 || ScaleFactorTotal < 0.8 || RotationDegreesTotal < 30) return true;
 
       var rotationDelta = detector.RotationDegreesDelta;
 
       ((LimitedViewport)Viewport).SetRotation(Viewport.Rotation - rotationDelta);
 
       RefreshGraphics();
+
+      Zoom?.Invoke(this, new ZoomedEventArgs(new Point(), ZoomDirection.ZoomIn));
 
       return true;
     }
