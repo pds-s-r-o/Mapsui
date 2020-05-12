@@ -284,7 +284,7 @@ namespace Mapsui.UI.Android
     private bool _OnScaled(ScaleGestureDetector detector)
     {
       ScaleFactorTotal *= detector.ScaleFactor;
-      if (ScaleFactorTotal < 1.2 && ScaleFactorTotal > 0.8) return true;
+   //   if (ScaleFactorTotal < 1.2 && ScaleFactorTotal > 0.8) return true;
       if (PrevFocus == null) PrevFocus = new Point(detector.FocusX / PixelDensity, detector.FocusY / PixelDensity);
 
       var currFocus = new Point(detector.FocusX / PixelDensity, detector.FocusY / PixelDensity);
