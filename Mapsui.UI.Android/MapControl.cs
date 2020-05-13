@@ -252,6 +252,7 @@ namespace Mapsui.UI.Android
       RotationDegreesTotal += Math.Abs(detector.RotationDegreesDelta);
       if (Map.RotationLock) return false;
       if (ScaleFactorTotal > 1.2 || ScaleFactorTotal < 0.8 || RotationDegreesTotal < UnSnapRotationDegrees) return true;
+      if (_scaleGestureDetector.IsInProgress && (ScaleFactorTotal > 1.2 || ScaleFactorTotal < 0.8 || RotationDegreesTotal < UnSnapRotationDegrees + 30)) return true;
 
       var rotationDelta = detector.RotationDegreesDelta;
 
@@ -284,7 +285,9 @@ namespace Mapsui.UI.Android
     private bool _OnScaled(ScaleGestureDetector detector)
     {
       ScaleFactorTotal *= detector.ScaleFactor;
-   //   if (ScaleFactorTotal < 1.2 && ScaleFactorTotal > 0.8) return true;
+      //   if (ScaleFactorTotal < 1.2 && ScaleFactorTotal > 0.8) return true;
+
+      if (_rotateGestureDetector.IsInProgress() && ScaleFactorTotal < 2 && ScaleFactorTotal > 0.5) return true;
       if (PrevFocus == null) PrevFocus = new Point(detector.FocusX / PixelDensity, detector.FocusY / PixelDensity);
 
       var currFocus = new Point(detector.FocusX / PixelDensity, detector.FocusY / PixelDensity);
