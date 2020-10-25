@@ -53,6 +53,9 @@ namespace Mapsui.UI.Android
 			// aapt resource value: 0x7F010008
 			public static int fontWeight = 2130771976;
 			
+			// aapt resource value: 0x7F010009
+			public static int start_with_openstreetmap = 2130771977;
+			
 			static Attribute()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -422,7 +425,13 @@ namespace Mapsui.UI.Android
 		{
 			
 			// aapt resource value: 0x7F090000
-			public static int status_bar_notification_info_overflow = 2131296256;
+			public static int ApplicationName = 2131296256;
+			
+			// aapt resource value: 0x7F090001
+			public static int Hello = 2131296257;
+			
+			// aapt resource value: 0x7F090002
+			public static int status_bar_notification_info_overflow = 2131296258;
 			
 			static String()
 			{
@@ -539,6 +548,13 @@ namespace Mapsui.UI.Android
 			
 			// aapt resource value: 5
 			public static int FontFamily_fontProviderQuery = 5;
+			
+			// aapt resource value: { 0x7F010009 }
+			public static int[] start_with_openstreetmap_style = new int[] {
+					2130771977};
+			
+			// aapt resource value: 0
+			public static int start_with_openstreetmap_style_start_with_openstreetmap = 0;
 			
 			static Styleable()
 			{
